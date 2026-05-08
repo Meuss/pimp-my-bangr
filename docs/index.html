@@ -5,6 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pimp my BANGR — Dark mode for your timesheet</title>
+  <meta name="description" content="Chrome extension that adds dark mode to your BANGR timesheet. Pure CSS, zero overhead, one-click toggle.">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pimp my BANGR">
+  <meta property="og:description" content="Because your timesheet shouldn't look like it was built in 2003. Dark mode for BANGR.">
+  <meta property="og:image" content="https://meuss.github.io/pimp-my-banger/og-image.png">
+  <meta property="og:url" content="https://meuss.github.io/pimp-my-banger/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pimp my BANGR">
+  <meta name="twitter:description" content="Because your timesheet shouldn't look like it was built in 2003. Dark mode for BANGR.">
+  <meta name="twitter:image" content="https://meuss.github.io/pimp-my-banger/og-image.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
@@ -30,7 +46,7 @@
     }
 
     s {
-      color: #64748b;
+      color: #8494a7;
       text-decoration: line-through;
     }
 
@@ -166,7 +182,7 @@
 
     .install .subtitle {
       text-align: center;
-      color: #64748b;
+      color: #8494a7;
       margin-bottom: 40px;
       font-size: 15px;
     }
@@ -209,6 +225,10 @@
       font-size: 14px;
       color: #94a3b8;
       line-height: 1.5;
+    }
+
+    .step-content a {
+      text-decoration: underline;
     }
 
     .step-content code {
@@ -317,12 +337,13 @@
     }
 
     .footer p {
-      color: #475569;
+      color: #8494a7;
       font-size: 13px;
     }
 
     .footer a {
-      color: #64748b;
+      color: #8494a7;
+      text-decoration: underline;
     }
 
     .footer a:hover {
@@ -353,6 +374,8 @@
 </head>
 
 <body>
+
+  <main>
 
   <!-- Hero -->
   <section class="hero">
@@ -447,6 +470,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
