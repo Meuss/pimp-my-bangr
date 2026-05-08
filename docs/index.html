@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pimp my BANGR — Dark mode for your timesheet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    s {
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .hero .tagline em {
+      color: #fb923c;
+      font-style: normal;
+    }
+
+    /* --- Features --- */
+    .features {
+      padding: 60px 24px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: 40px;
+      color: #e2e8f0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: #475569;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e2e8f0;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* --- Install --- */
+    .install {
+      padding: 60px 24px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .install h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+      color: #e2e8f0;
+    }
+
+    .install .subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+
+    .steps {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+
+    .step-content h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #e2e8f0;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .step-content code {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #38bdf8;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0ea5e9;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s;
+      margin: 20px auto 0;
+      text-align: center;
+    }
+
+    .download-btn:hover {
+      background: #0284c7;
+      color: white;
+    }
+
+    .download-center {
+      text-align: center;
+    }
+
+    /* --- Usage --- */
+    .usage {
+      padding: 60px 24px;
+      border-top: 1px solid #1e293b;
+    }
+
+    .usage h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+      color: #e2e8f0;
+    }
+
+    .usage-demo {
+      max-width: 360px;
+      margin: 0 auto;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .usage-demo p {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .toggle-demo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0f172a;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+    }
+
+    .toggle-demo span {
+      color: #4ade80;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .toggle-pill {
+      width: 44px;
+      height: 24px;
+      background: #0ea5e9;
+      border-radius: 24px;
+      position: relative;
+    }
+
+    .toggle-pill::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: white;
+      border-radius: 50%;
+      top: 3px;
+      right: 3px;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      padding: 40px 24px;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #475569;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: #64748b;
+    }
+
+    .footer a:hover {
+      color: #38bdf8;
+    }
+
+    .footer .heart {
+      color: #f87171;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 16px 40px;
+      }
+
+      .hero .tagline {
+        font-size: 1.1rem;
+      }
+
+      .features,
+      .install,
+      .usage {
+        padding: 40px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Chrome Extension</div>
+    <h1>Pimp my BANGR</h1>
+    <p class="tagline">Because your timesheet shouldn't look like it was built in <em>2003</em>. Dark mode for
+      <s>Aubep</s> BANGR.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2>What you get</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <h3>Full Dark Mode</h3>
+          <p>Every element restyled — header, tables, inputs, buttons, totals. Your eyes will thank you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Toggle On/Off</h3>
+          <p>One click in the toolbar to switch between dark and original. Your preference is remembered.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🪶</div>
+          <h3>Zero Overhead</h3>
+          <p>Pure CSS injection — no JavaScript modifying the page, no tracking, no nonsense. Just vibes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section class="install">
+    <div class="container">
+      <h2>Installation</h2>
+      <p class="subtitle">Takes about 30 seconds. No Chrome Web Store needed.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Download the extension</h3>
+            <p>Grab the <a href="https://github.com/Meuss/pimp-my-banger/releases/latest">latest release zip</a> and
+              unzip it somewhere you won't lose it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Open Chrome Extensions</h3>
+            <p>Navigate to <code>chrome://extensions</code> in your browser.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Enable Developer Mode</h3>
+            <p>Flip the toggle in the top-right corner of the extensions page.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Load Unpacked</h3>
+            <p>Click the "Load unpacked" button and select the <code>extension</code> folder you unzipped.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Go fill your timesheet</h3>
+            <p>Navigate to <s>Aubep</s> BANGR and enjoy the darkness. 🌑</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage -->
+  <section class="usage">
+    <div class="container">
+      <h2>Usage</h2>
+      <div class="usage-demo">
+        <p>Click the extension icon in your toolbar to toggle dark mode on or off.</p>
+        <div class="toggle-demo">
+          <span>Enabled</span>
+          <div class="toggle-pill"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Made by Claude Code ft. <a href="https://thomasmiller.ch">Thomas Miller</a>.</p>
+  </footer>
+
+</body>
+
+</html>

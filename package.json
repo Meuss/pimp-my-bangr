@@ -1,0 +1,21 @@
+{
+  "name": "pimp-my-bangr",
+  "version": "1.0.0",
+  "description": "Pimp my BANGR — Dark mode for your timesheet",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier --write \"**/*.{js,css}\""
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=10.0.0",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
+  },
+  "author": "Thomas Miller",
+  "license": "ISC",
+  "packageManager": "pnpm@11.0.8",
+  "dependencies": {
+    "prettier": "^3.8.3"
+  }
+}
