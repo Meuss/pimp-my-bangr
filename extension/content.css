@@ -576,6 +576,17 @@ html[data-pmb='on'] {
     color: var(--pmb-text-secondary) !important;
   }
 
+  /* Highlighted schedule cells (Horaire indicatif) stay light blue in dark mode.
+     `input` prefix matches the type='text' background rule's specificity so this wins. */
+  input[style*='background-color: #ADD8E6'],
+  input[style*='background-color:#ADD8E6'],
+  input[style*='background-color: #add8e6'],
+  input[style*='background-color:#add8e6'] {
+    background-color: #add8e6 !important;
+    color: var(--pmb-bg-base) !important;
+    border-color: #7fa8c9 !important;
+  }
+
   /* tableau de bord */
   .card {
     background: linear-gradient(to bottom, var(--pmb-bg-raised), rgba(255, 255, 255, 0)) !important;
